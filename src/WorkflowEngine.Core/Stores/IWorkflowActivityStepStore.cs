@@ -14,6 +14,7 @@
  */
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WorkflowEngine.Core.Models;
 
@@ -24,5 +25,6 @@ namespace WorkflowEngine.Core.Stores
         Task<WorkflowActivityStep> GetWorkflowActivityStepByIdAsync(int workflowActivityStepId);
         void Add(WorkflowActivityStep workflowActivityStep);
         void Add(IEnumerable<WorkflowActivityStep> workflowActivitySteps);
+        IQueryable<WorkflowActivityStep> FindAllWorkflowActivitySteps();
     }
 }

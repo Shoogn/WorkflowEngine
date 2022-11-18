@@ -13,13 +13,13 @@
 ** limitations under the License.
  */
 
+using WorkflowEngine.Core.Models;
+
 namespace WorkflowEngine.Core.Results
 {
     public class WorkflowResult
     {
         public WorkflowContext WorkflowContext { get; set; }
-        public int ActivityStepId { get; set; }
-        public bool WithSendEmail { get; set; }
-        public bool WithSendNotification { get; set; }
+        public WorkflowActivityStep WorkflowActivityStep { get; set; }
     }
 }

@@ -14,6 +14,7 @@
  */
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using WorkflowEngine.Core.Models;
 
@@ -23,6 +24,33 @@ namespace WorkflowEngine.Core.Stores.InMemory
     {
         private readonly Dictionary<int, WorkflowActivityStep> _workflowActivityStep = new
             Dictionary<int, WorkflowActivityStep>();
+
+        public IQueryable<WorkflowActivityStep> FindAllWorkflowActivitySteps()
+        {
+            List<WorkflowActivityStep> ls = new List<WorkflowActivityStep>();
+            if (_workflowActivityStep.Any())
+            {
+                foreach(var item in _workflowActivityStep)
+                {
+                    ls.Add(new WorkflowActivityStep
+                    {
+                        NextWorkflowActivity = item.Value.NextWorkflowActivity,
+                        RequiredNotes = item.Value.RequiredNotes,
+                        WithSendEmail = item.Value.WithSendEmail,
+                        WithSendNotification = item.Value.WithSendNotification,
+                        WorkflowAction = item.Value.WorkflowAction,
+                        WorkflowActivity = item.Value.WorkflowActivity,
+                        WorkflowActivityStepId = item.Key
+                    });
+                }
+
+                return ls.AsQueryable();
+            }
+            else
+            {
+                return ls.AsQueryable();
+            }
+        }
 
         public Task<WorkflowActivityStep> GetWorkflowActivityStepByIdAsync(int workflowActivityStepId)
         {
@@ -34,9 +62,9 @@ namespace WorkflowEngine.Core.Stores.InMemory
 
         public void Add(WorkflowActivityStep workflowActivityStep)
         {
-            if(_workflowActivityStep.ContainsKey(workflowActivityStep.WorkflowActivityStepId))
+            if (_workflowActivityStep.ContainsKey(workflowActivityStep.WorkflowActivityStepId))
                 _workflowActivityStep[workflowActivityStep.WorkflowActivityStepId] = workflowActivityStep;
-            else 
+            else
                 _workflowActivityStep.Add(workflowActivityStep.WorkflowActivityStepId, workflowActivityStep);
         }
 
