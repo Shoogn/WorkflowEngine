@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FC544A90-754F-47ED-A247-657E6C03D1A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowEngine.Core", "WorkflowEngine.Core", "{FC95D290-49A2-400C-9846-ED4AA10775F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkflowEngine.Core", "src\WorkflowEngine.Core\WorkflowEngine.Core.csproj", "{EE0D870F-08FF-4D70-97F4-EBACEA144B34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC95D290-49A2-400C-9846-ED4AA10775F3} = {FC544A90-754F-47ED-A247-657E6C03D1A2}
+		{EE0D870F-08FF-4D70-97F4-EBACEA144B34} = {FC95D290-49A2-400C-9846-ED4AA10775F3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B93C980F-159A-4768-A38B-D1A718FF3394}
+	EndGlobalSection
+EndGlobal
