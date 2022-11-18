@@ -15,25 +15,33 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using WorkflowEngine.Core.Exceptions;
 using WorkflowEngine.Core.Models;
 using WorkflowEngine.Core.Results;
 using WorkflowEngine.Core.Stores;
+using WorkflowEngine.Core.Validation;
 
 namespace WorkflowEngine.Core.Services
 {
     public class WorkflowManager
     {
         private readonly IWorkflowActivityStepStore _workflowActivityStepStore;
-        public WorkflowManager(IWorkflowActivityStepStore workflowActivityStepStore)
+        private WorkflowContextValidation _validator;
+        public WorkflowManager(IWorkflowActivityStepStore workflowActivityStepStore,
+             WorkflowContextValidation validator)
         {
             _workflowActivityStepStore = workflowActivityStepStore;
+            _validator = validator;
         }
 
         public virtual async Task<WorkflowResult> Execute(WorkflowContext workflowContext)
         {
+            // Here first I have to validate the WorkflowContext object
+            var validationRsult = _validator.ValidateWorkflowContext(workflowContext);
+            if (!validationRsult.IsValid)
+                return new WorkflowResult { IsValid = false };
+
             var query = await _workflowActivityStepStore.GetWorkflowActivityStepByIdAsync(workflowContext.CurrentActivityId);
 
             if (query == null)
@@ -43,8 +51,8 @@ namespace WorkflowEngine.Core.Services
             {
                 WorkflowActivityStep = query,
                 WorkflowContext = workflowContext,
+                IsValid = true
             };
-
         }
 
         public IList<WorkflowAction> GetAllActionsForActivity(int workflowActivityId)

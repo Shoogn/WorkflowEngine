@@ -21,5 +21,6 @@ namespace WorkflowEngine.Core.Results
     {
         public WorkflowContext WorkflowContext { get; set; }
         public WorkflowActivityStep WorkflowActivityStep { get; set; }
+        public bool IsValid { get; set; }
     }
 }
