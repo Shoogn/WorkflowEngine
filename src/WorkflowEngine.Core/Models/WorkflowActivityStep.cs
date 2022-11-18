@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
 **  Copyright 2022 Mohammed Ahmed Hussien babiker
 
 **  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +13,17 @@
 ** limitations under the License.
  */
 
-using System;
-
-namespace WorkflowEngine.Core.Exceptions
+namespace WorkflowEngine.Core.Models
 {
-    public class WorkflowEngineException : Exception
+    public class WorkflowActivityStep
     {
-        public WorkflowEngineException(string message) : base(message)
-        {
+        public int WorkflowActivityStepId { get; set; }
+        public WorkflowActivity WorkflowActivity { get; set; }
+        public WorkflowAction WorkflowAction { get; set; }
+        public WorkflowActivity NextWorkflowActivity { get; set; }
 
-        }
-        public WorkflowEngineException(string message, Exception innerException) 
-            : base(message, innerException)
-        {
-
-        }
+        public bool WithSendEmail { get; set; }
+        public bool WithSendNotification { get; set; }
+        public bool RequiredNotes { get; set; }
     }
 }

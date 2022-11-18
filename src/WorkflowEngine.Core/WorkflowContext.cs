@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
 **  Copyright 2022 Mohammed Ahmed Hussien babiker
 
 **  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +13,11 @@
 ** limitations under the License.
  */
 
-using System;
-
-namespace WorkflowEngine.Core.Exceptions
+namespace WorkflowEngine.Core
 {
-    public class WorkflowEngineException : Exception
+    public class WorkflowContext
     {
-        public WorkflowEngineException(string message) : base(message)
-        {
-
-        }
-        public WorkflowEngineException(string message, Exception innerException) 
-            : base(message, innerException)
-        {
-
-        }
+        public int ActionId { get; set; }
+        public int CurrentActivityId { get; set; }
     }
 }

@@ -15,15 +15,12 @@
 
 namespace WorkflowEngine.Core.Models
 {
-    /// <summary>
-    /// Workflow object
-    /// </summary>
-    public sealed class Workflow
+    public class WorkflowActivity
     {
         /// <summary>
         /// Identitifire
         /// </summary>
-        public int WorkflowId { get; set; }
+        public int WorkflowActivityId { get; set; }
 
         /// <summary>
         /// name in arabic
@@ -36,10 +33,16 @@ namespace WorkflowEngine.Core.Models
         public string NameEn { get; set; }
 
         /// <summary>
-        /// is active or not
-        /// by default is true
-        /// if is not active (false) the workflow can not procceed any flow
+        /// is complete activity
         /// </summary>
-        public bool IsActive { get; set; } = true;
+        public bool IsComplete { get; set; }
+
+        /// <summary>
+        /// is start activity, and if so then,
+        /// this it will be the first step int tho wrokflow
+        /// </summary>
+        public bool IsStart { get; set; }
+
+        public Workflow Workflow { get; set; }
     }
 }

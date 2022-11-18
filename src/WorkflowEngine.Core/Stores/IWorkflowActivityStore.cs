@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
 **  Copyright 2022 Mohammed Ahmed Hussien babiker
 
 **  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +13,16 @@
 ** limitations under the License.
  */
 
-using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using WorkflowEngine.Core.Models;
 
-namespace WorkflowEngine.Core.Exceptions
+namespace WorkflowEngine.Core.Stores
 {
-    public class WorkflowEngineException : Exception
+    public interface IWorkflowActivityStore
     {
-        public WorkflowEngineException(string message) : base(message)
-        {
-
-        }
-        public WorkflowEngineException(string message, Exception innerException) 
-            : base(message, innerException)
-        {
-
-        }
+        Task<WorkflowActivity> GetActivityByIdAsync(int workflowActivityId);
+        void Add(WorkflowActivity activity);
+        void Add(IEnumerable<WorkflowActivity> workflowActivities);
     }
 }

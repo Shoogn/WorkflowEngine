@@ -16,14 +16,14 @@
 namespace WorkflowEngine.Core.Models
 {
     /// <summary>
-    /// Workflow object
+    /// Action object
     /// </summary>
-    public sealed class Workflow
+    public sealed class WorkflowAction
     {
         /// <summary>
         /// Identitifire
         /// </summary>
-        public int WorkflowId { get; set; }
+        public int WorkflowActionId { get; set; }
 
         /// <summary>
         /// name in arabic
@@ -34,12 +34,6 @@ namespace WorkflowEngine.Core.Models
         /// name in english
         /// </summary>
         public string NameEn { get; set; }
-
-        /// <summary>
-        /// is active or not
-        /// by default is true
-        /// if is not active (false) the workflow can not procceed any flow
-        /// </summary>
-        public bool IsActive { get; set; } = true;
+        
     }
 }

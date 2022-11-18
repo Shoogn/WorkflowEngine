@@ -13,33 +13,20 @@
 ** limitations under the License.
  */
 
-namespace WorkflowEngine.Core.Models
+using System.Collections.Generic;
+using WorkflowEngine.Core.Models;
+
+namespace WorkflowEngine.Core.Stores
 {
-    /// <summary>
-    /// Workflow object
-    /// </summary>
-    public sealed class Workflow
+    public interface IWorkflowActionStore
     {
         /// <summary>
-        /// Identitifire
+        /// This metho will return the action object
         /// </summary>
-        public int WorkflowId { get; set; }
-
-        /// <summary>
-        /// name in arabic
-        /// </summary>
-        public string NameAr { get; set; }
-
-        /// <summary>
-        /// name in english
-        /// </summary>
-        public string NameEn { get; set; }
-
-        /// <summary>
-        /// is active or not
-        /// by default is true
-        /// if is not active (false) the workflow can not procceed any flow
-        /// </summary>
-        public bool IsActive { get; set; } = true;
+        /// <param name="actionId">workflow action Id</param>
+        /// <returns>null if the workflow action not found</returns>
+        WorkflowAction GetById(int actionId);
+        void Add(WorkflowAction action);
+        void Add(IEnumerable<WorkflowAction> workflowActions);
     }
 }
