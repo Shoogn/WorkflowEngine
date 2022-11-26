@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkflowEngine.Core", "Work
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkflowEngine.Core", "src\WorkflowEngine.Core\WorkflowEngine.Core.csproj", "{EE0D870F-08FF-4D70-97F4-EBACEA144B34}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{95A41D47-6369-48B1-A276-4AEF2C3053F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkflowEngine.SampleConsole", "Samples\WorkflowEngine.SampleConsole\WorkflowEngine.SampleConsole.csproj", "{E4D96C03-0199-47A0-BFFB-F39498BE6EC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,10 @@ Global
 		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE0D870F-08FF-4D70-97F4-EBACEA144B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D96C03-0199-47A0-BFFB-F39498BE6EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D96C03-0199-47A0-BFFB-F39498BE6EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D96C03-0199-47A0-BFFB-F39498BE6EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D96C03-0199-47A0-BFFB-F39498BE6EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +34,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FC95D290-49A2-400C-9846-ED4AA10775F3} = {FC544A90-754F-47ED-A247-657E6C03D1A2}
 		{EE0D870F-08FF-4D70-97F4-EBACEA144B34} = {FC95D290-49A2-400C-9846-ED4AA10775F3}
+		{E4D96C03-0199-47A0-BFFB-F39498BE6EC2} = {95A41D47-6369-48B1-A276-4AEF2C3053F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B93C980F-159A-4768-A38B-D1A718FF3394}

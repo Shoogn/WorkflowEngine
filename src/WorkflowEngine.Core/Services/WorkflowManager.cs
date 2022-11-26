@@ -28,11 +28,10 @@ namespace WorkflowEngine.Core.Services
     {
         private readonly IWorkflowActivityStepStore _workflowActivityStepStore;
         private WorkflowContextValidation _validator;
-        public WorkflowManager(IWorkflowActivityStepStore workflowActivityStepStore,
-             WorkflowContextValidation validator)
+        public WorkflowManager(IWorkflowActivityStepStore workflowActivityStepStore)
         {
             _workflowActivityStepStore = workflowActivityStepStore;
-            _validator = validator;
+            _validator = new WorkflowContextValidation();
         }
 
         public virtual async Task<WorkflowResult> Execute(WorkflowContext workflowContext)
@@ -46,6 +45,14 @@ namespace WorkflowEngine.Core.Services
 
             if (query == null)
                 throw new WorkflowEngineException("activity is not found");
+
+            // here I have to perform the action
+            var actionToApplyFromStore = query.WorkflowAction;
+            if (actionToApplyFromStore.WorkflowActionId != workflowContext.ActionId)
+                throw new WorkflowEngineException("this action is not applicable to this step");
+
+
+
 
             return new WorkflowResult
             {

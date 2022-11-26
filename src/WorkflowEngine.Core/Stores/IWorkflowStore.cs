@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
 **  Copyright 2022 Mohammed Ahmed Hussien babiker
 
 **  Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +11,9 @@
 **  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 **  See the License for the specific language governing permissions and
 ** limitations under the License.
- */using System.Threading.Tasks;
+ */
+
+using System.Threading.Tasks;
 using WorkflowEngine.Core.Models;
 
 namespace WorkflowEngine.Core.Stores

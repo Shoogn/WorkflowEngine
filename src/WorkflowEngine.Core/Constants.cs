@@ -17,5 +17,7 @@ namespace WorkflowEngine.Core
 {
     internal static class Constants
     {
+
+        internal const string WorkflowEngineName = "WorkflowEngineProvider"; 
     }
 }

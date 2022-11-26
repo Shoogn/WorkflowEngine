@@ -13,12 +13,9 @@
 ** limitations under the License.
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using WorkflowEngine.Core.Exceptions;
 using WorkflowEngine.Core.Models;
 
 namespace WorkflowEngine.Core.Stores.InMemory
@@ -26,19 +23,28 @@ namespace WorkflowEngine.Core.Stores.InMemory
     public class InMemoryWorkflowStore : IWorkflowStore
     {
         private readonly IEnumerable<Workflow> _workflow;
-
-        public InMemoryWorkflowStore(IEnumerable<Workflow> workflows)
+        public InMemoryWorkflowStore()
         {
-            if (_workflow == null || !_workflow.Any())
-                throw new WorkflowEngineException("work flow store can't be null or empty");
-            _workflow = workflows;
+            _workflow = new List<Workflow>
+            {
+                new Workflow { WorkflowId = 1, IsActive = true, NameEn = "Test Workflow 1#" },
+                new Workflow { WorkflowId = 2, IsActive = false, NameEn = "Test Workflow 2#" },
+                new Workflow { WorkflowId = 3, IsActive = true, NameEn = "Test Workflow 3#" }
+            };
         }
+
+        //public InMemoryWorkflowStore(IEnumerable<Workflow> workflows)
+        //{
+        //    if (_workflow == null || !_workflow.Any())
+        //        throw new WorkflowEngineException("work flow store can't be null or empty");
+        //    _workflow = workflows;
+        //}
 
         public Task<Workflow> GetWorkflowByIdAsync(int workflowId)
         {
             var query = (from workflow in _workflow
-                        where workflow.WorkflowId == workflowId
-                        select workflow);
+                         where workflow.WorkflowId == workflowId
+                         select workflow);
 
             return Task.FromResult(query.SingleOrDefault());
         }
